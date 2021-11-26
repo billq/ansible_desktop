@@ -5,6 +5,43 @@
 
 
   tasks:
-  - name: install htop
+  - name: install additional tools
     package:
-      name: htop
+      name: 
+        - htop
+        - tmux
+        - net-tools
+        - libgl1-mesa-glx
+        - libegl1-mesa
+        - libxcb-xtest0
+        - xfce4
+        - xfwm4
+
+  - name: copy files
+    copy:
+      src: 
+      dest: 
+      owner: 
+      group: 
+      mode:
+
+  - name: add ansible user
+    user:
+      name: dt_admin
+      system: yes
+
+  - name: set up sudo for ansible user
+    copy:
+      src: files/sudoers_dt_admin
+      dest: /etc/sudoers.d/dt_admin
+      owner: root
+      group: root
+      mode: 0440
+
+  - name: add cronjobs
+    cron:
+      name: ansible manage desktop
+      user: dt_admin
+      minute: "*/10"
+      job: ansible-pull -o -U https://github.com/billq/ansible_desktop.git
+
