@@ -99,5 +99,5 @@
       name: ansible manage desktop
       user: dt_admin
       minute: "*/10"
-      job: ansible-pull -o -U https://github.com/billq/ansible_desktop.git
+      job: ansible-pull -o -U https://github.com/billq/ansible_desktop.git >/var/log/desktop_manager.log 2>&1
 
