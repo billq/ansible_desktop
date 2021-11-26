@@ -19,60 +19,74 @@
 
   - name: copy files
     copy:
-      src: 
-      dest: 
-      owner: 
-      group: 
-      mode:
+      src: file/motd
+      dest: /etc/motd
+      owner: root
+      group: root
+      mode: 664
 
   - name: add ansible user
     user:
       name: dt_admin
       system: yes
 
-  - name: set up sudoers files
+  - name: set up sudoers dt_admin
     copy:
       src: files/10_dt_admin_local
       dest: /etc/sudoers.d/10_dt_admin_local
       owner: root
       group: root
       mode: 0440
+
+  - name: set up sudoers is_infosec_l20
     copy:
       src: files/10_is_infosec_l20
       dest: /etc/sudoers.d/10_is_infosec_l20
       owner: root
       group: root
       mode: 0440
+
+  - name: set up sudoers lib_admin_l10
     copy:
       src: files/10_linux_admin_l10
       dest: /etc/sudoers.d/10_linux_admin_l10
       owner: root
       group: root
       mode: 0440
+
+  - name: set up sudoers linux_admin_l20
     copy:
       src: files/10_linux_admin_l20
       dest: /etc/sudoers.d/10_linux_admin_l20
       owner: root
       group: root
       mode: 0440
+
+  - name: set up sudoers pci_db_admins
     copy:
       src: files/10_pci_db_admins
       dest: /etc/sudoers.d/10_pci_db_admins
       owner: root
       group: root
       mode: 0440
+
+  - name: set up sudoers pci_linux_admin
     copy:
       src: files/10_pci_linux_admin
       dest: /etc/sudoers.d/10_pci_linux_admin
       owner: root
       group: root
       mode: 0440
+
+  - name: set up sudoers pci_linux_sr_admin
     copy:
       src: files/10_pci_linux_sr_admin
       dest: /etc/sudoers.d/10_pci_linux_sr_admin
       owner: root
       group: root
       mode: 0440
+
+  - name: set up sudoers supervisor
     copy:
       src: files/10_supervisor
       dest: /etc/sudoers.d/10_supervisor
