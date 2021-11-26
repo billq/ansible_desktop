@@ -19,7 +19,7 @@
 
   - name: copy files
     copy:
-      src: file/motd
+      src: files/motd
       dest: /etc/motd
       owner: root
       group: root
