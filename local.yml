@@ -30,10 +30,52 @@
       name: dt_admin
       system: yes
 
-  - name: set up sudo for ansible user
+  - name: set up sudoers files
     copy:
-      src: files/sudoers_dt_admin
-      dest: /etc/sudoers.d/dt_admin
+      src: files/10_dt_admin_local
+      dest: /etc/sudoers.d/10_dt_admin_local
+      owner: root
+      group: root
+      mode: 0440
+    copy:
+      src: files/10_is_infosec_l20
+      dest: /etc/sudoers.d/10_is_infosec_l20
+      owner: root
+      group: root
+      mode: 0440
+    copy:
+      src: files/10_linux_admin_l10
+      dest: /etc/sudoers.d/10_linux_admin_l10
+      owner: root
+      group: root
+      mode: 0440
+    copy:
+      src: files/10_linux_admin_l20
+      dest: /etc/sudoers.d/10_linux_admin_l20
+      owner: root
+      group: root
+      mode: 0440
+    copy:
+      src: files/10_pci_db_admins
+      dest: /etc/sudoers.d/10_pci_db_admins
+      owner: root
+      group: root
+      mode: 0440
+    copy:
+      src: files/10_pci_linux_admin
+      dest: /etc/sudoers.d/10_pci_linux_admin
+      owner: root
+      group: root
+      mode: 0440
+    copy:
+      src: files/10_pci_linux_sr_admin
+      dest: /etc/sudoers.d/10_pci_linux_sr_admin
+      owner: root
+      group: root
+      mode: 0440
+    copy:
+      src: files/10_supervisor
+      dest: /etc/sudoers.d/10_supervisor
       owner: root
       group: root
       mode: 0440
