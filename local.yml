@@ -39,22 +39,9 @@
       state: latest
       update_cache: true
 
-  - name: Check if my_package is installed
-    command: dpkg-query -W mattermost-desktop
-    register: my_package_check_deb
-    failed_when: my_package_check_deb.rc > 1
-    changed_when: my_package_check_deb.rc == 1
-
-  - name: Download MatterMost
-    get_url:
-      url="https://releases.mattermost.com/desktop/5.0.2/mattermost-desktop-5.0.2-linux-amd64.deb"
-      dest="/home/ws_admin/Downlaods/mattermost-desktop-5.0.2-linux-amd64.deb"
-    when: my_package_check_deb.rc == 1
-
   - name: Install MatterMost
-    apt: deb="/home/ws_admin/Downlaods/mattermost-desktop-5.0.2-linux-amd64.deb"
-    sudo: true
-    when: my_package_check_deb.rc==1
+    apt:
+      deb: https://releases.mattermost.com/desktop/5.0.2/mattermost-desktop-5.0.2-linux-amd64.deb
 
   - name: copy files
     copy:
