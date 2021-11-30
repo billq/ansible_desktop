@@ -38,6 +38,8 @@
         - gettext
         - cmake
         - gcc
+        - remmina
+        - terminator
 
   - name: Install apt-transport-https
     ansible.builtin.apt:
@@ -66,13 +68,9 @@
       deb: https://releases.mattermost.com/desktop/5.0.2/mattermost-desktop-5.0.2-linux-amd64.deb
 
   - name: Install snap packages with classic confinement
-    community.general.snap:
-      name:
-        - remmina
-        - terminator
-        - code
-        - sublime-text
-      classic: yes
+    command:
+      - snap install code --classic
+      - snap install sublime-text --classic
 
   - name: copy files
     copy:
