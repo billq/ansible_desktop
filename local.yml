@@ -65,15 +65,6 @@
     apt:
       deb: https://releases.mattermost.com/desktop/5.0.2/mattermost-desktop-5.0.2-linux-amd64.deb
 
-  - name: Download OMZ!
-    get_url:
-      url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-      dest: /home/dt_admin/Downloads/omz-install.sh
-      mode: 755
-
-  - name: Install OMZ!
-    ansible.builtin.shell: /home/dt_admin/Downloads/omz-install.sh
-
   - name: Install snap packages with classic confinement
     community.general.snap:
       name:
