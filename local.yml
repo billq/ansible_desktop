@@ -48,7 +48,7 @@
   - name: Download MatterMost
     get_url:
       url="https://releases.mattermost.com/desktop/5.0.2/mattermost-desktop-5.0.2-linux-amd64.deb"
-    dest="/home/{{ ansible_env.USER }}/Downlaods/mattermost-desktop-5.0.2-linux-amd64.deb"
+      dest="/home/{{ ansible_env.USER }}/Downlaods/mattermost-desktop-5.0.2-linux-amd64.deb"
     when: my_package_check_deb.rc == 1
 
   - name: Install MatterMost
