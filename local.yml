@@ -39,6 +39,23 @@
       state: latest
       update_cache: true
 
+  - name: Check if my_package is installed
+    command: dpkg-query -W mattermost-desktop
+    register: my_package_check_deb
+    failed_when: my_package_check_deb.rc > 1
+    changed_when: my_package_check_deb.rc == 1
+
+  - name: Download MatterMost
+    get_url:
+      url="https://releases.mattermost.com/desktop/5.0.2/mattermost-desktop-5.0.2-linux-amd64.deb"
+    dest="/home/{{ ansible_env.USER }}/Downlaods/mattermost-desktop-5.0.2-linux-amd64.deb"
+    when: my_package_check_deb.rc == 1
+
+  - name: Install MatterMost
+    apt: deb="/home/{{ ansible_env.USER }}/Downlaods/mattermost-desktop-5.0.2-linux-amd64.deb"
+    sudo: true
+    when: my_packagecheck_deb.rc==1
+
   - name: copy files
     copy:
       src: files/motd
