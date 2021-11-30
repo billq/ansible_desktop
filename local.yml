@@ -74,15 +74,11 @@
   - name: Install OMZ!
     ansible.builtin.shell: /home/dt_admin/Downloads/omz-install.sh
 
-  - name: Install snap packages
+  - name: Install snap packages with classic confinement
     community.general.snap:
       name:
         - remmina
         - terminator
-
-  - name: Install snap packages with classic confinement
-    community.general.snap:
-      name:
         - code
         - sublime-text
       classic: yes
