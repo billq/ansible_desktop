@@ -70,7 +70,7 @@
       url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
       dest: /home/dt_admin/Downloads/omz-install.sh
       mode: 755
-      ansible.builtin.shell: /home/dt_admin/Downloads/omz-install.sh
+    ansible.builtin.shell: /home/dt_admin/Downloads/omz-install.sh
 
   - name: Install snap packages
     community.general.snap:
