@@ -16,10 +16,10 @@
         - libxcb-xtest0
         - xfce4
         - xfwm4
-        = zsh
-        = zsh-doc
-        = zsh-syntax-highlighting
-        = libreoffice
+        - zsh
+        - zsh-doc
+        - zsh-syntax-highlighting
+        - libreoffice
         - build-essential
         - checkinstall
         - ubuntu-make
