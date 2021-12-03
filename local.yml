@@ -64,13 +64,15 @@
       update_cache: true
 
   - name: Install MatterMost
-    apt:
+    ansible.builtin.apt:
+      name: "mattermost"
       deb: https://releases.mattermost.com/desktop/5.0.2/mattermost-desktop-5.0.2-linux-amd64.deb
 
-  - name: Install snap packages with classic confinement
-    command:
-      - snap install code --classic
-      - snap install sublime-text --classic
+  - name: Install code
+    command: snap install code --classic
+
+  - name: Install sublime
+    command: snap install sublime-text --classic
 
   - name: copy files
     copy:
