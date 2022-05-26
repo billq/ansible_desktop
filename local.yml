@@ -22,7 +22,7 @@
         - libreoffice
         - build-essential
         - checkinstall
-        - ubuntu-make
+        - ubuntu-dev-tools
         - libreadline-gplv2-dev
         - libncursesw5-dev
         - libssl-dev
