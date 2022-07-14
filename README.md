@@ -3,7 +3,7 @@ Workstation configuration
 
 Uses a script like this, run using @reboot cronjob:
 
-`
+```
 #!/bin/bash
 #
 # Workstation install bootstrap script
@@ -125,6 +125,6 @@ case $PHASE in
   exit
 ;;
 esac
-`
+```
 
 Stick the above into a file that you can pull down using curl from a webserver, then execute that file.  Read the header comment
