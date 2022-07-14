@@ -1,6 +1,11 @@
 # ansible_desktop
 Workstation configuration
 
+Requirements:
+1. webserver (see below)
+2. template image setup properly - this needs some work
+
+
 Uses a script like this, run using @reboot cronjob:
 
 ```
@@ -9,7 +14,7 @@ Uses a script like this, run using @reboot cronjob:
 # Workstation install bootstrap script
 #
 # Process:
-# 1. curl inf-d-tools-admin-1/bquayle/ws_init.sh|sudo /bin/bash (this script)
+# 1. curl web-server/ws_init.sh|sudo /bin/bash (this script)
 # 2. ^ this does premiminary configuration work (unique hostname, etc...), then
 #      installs ansible and git and does the ansible-pull
 # 3. ^ this installs workstation config, which includes:
