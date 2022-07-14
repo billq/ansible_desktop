@@ -2,12 +2,14 @@
 Workstation configuration
 
 Uses a script like this, run using @reboot cronjob:
-#!/bin/bash
+
+
+`#!/bin/bash
 #
 # Workstation install bootstrap script
 #
 # Process:
-# 1. curl inf-d-tools-admin-1/bquayle/ws_init.sh|sudo /bin/bash (this script)
+# 1. curl webserver/ws_init.sh|sudo /bin/bash (this script)
 # 2. ^ this does premiminary configuration work (unique hostname, etc...), then
 #      installs ansible and git and does the ansible-pull
 # 3. ^ this installs workstation config, which includes:
@@ -122,6 +124,7 @@ case $PHASE in
 5)
   exit
 ;;
-esac
+esac`
 
-Stick the above into a file that you can pull down using wget from a webserver, then execute that file.  This is the bootstrap.
+  
+Stick the above into a file that you can pull down using curl from a webserver, then execute that file.  Read the header comment
